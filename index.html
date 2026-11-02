@@ -154,7 +154,7 @@ body.session-ready #pteWelcome{display:none}
 </script>
 <script type="module">
 // Firebase 콘솔 > 프로젝트 설정 > 내 앱 > 웹 앱 구성에서 복사한 값을 입력하세요.
-const FIREBASE_CONFIG = {apiKey:'',authDomain:'',projectId:'',appId:''};
+const FIREBASE_CONFIG = {apiKey:'AIzaSyBqZ-HyRr0c6dYR8dPSfACPLckmLAGbRhs',authDomain:'pte58-e007b.firebaseapp.com',projectId:'pte58-e007b',storageBucket:'pte58-e007b.firebasestorage.app',messagingSenderId:'429086576648',appId:'1:429086576648:web:65bc6ca664e64353e6c1bd',measurementId:'G-ZGWGTLTYLM'};
 const firebaseReady = Boolean(FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.authDomain && FIREBASE_CONFIG.projectId && FIREBASE_CONFIG.appId);
 const $=id=>document.getElementById(id), today=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
 const defaults=()=>({simRuns:[],entries:[],scores:[],completed:{},aiHistory:[],vocabulary:[],vocabReviews:[],vocabMistakes:{},verifiedDaily:{},settings:{dailyGoal:120,examDate:'2027-10-29',promise:'1년 안에 PTE Academic 58점 이상을 달성한다.'},planner:{target:58,date:'2027-10-29',weekday:120,weekend:120,level:'beginner',rest:'none'},plannerChecks:{},dailyTargets:{}});
