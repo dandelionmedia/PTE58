@@ -603,7 +603,7 @@ Reading:[{type:'mc',title:'Reading · Fill in the Blanks',prompt:'The research t
 // Browser speech recognition is an optional practice aid, not Pearson scoring.
 // The browser may process speech on its speech service; no audio is sent to PTE Opal directly.
 let labRecognition=null;
-function labNormalizeWords(value){return String(value||'').toLowerCase().replace(/[^a-z' ]/g,' ').replace(/\\s+/g,' ').trim().split(' ').filter(Boolean)}
+function labNormalizeWords(value){return String(value||'').toLowerCase().replace(/[^a-z' ]/g,' ').replace(/\s+/g,' ').trim().split(' ').filter(Boolean)}
 function labCompareSpoken(expected,heard){const a=labNormalizeWords(expected),b=labNormalizeWords(heard),m=a.length,n=b.length;let previous=Array.from({length:n+1},(_,i)=>i);for(let i=1;i<=m;i++){const next=[i];for(let j=1;j<=n;j++)next[j]=Math.min(next[j-1]+1,previous[j]+1,previous[j-1]+(a[i-1]===b[j-1]?0:1));previous=next}const distance=previous[n];const accuracy=m?Math.round(Math.max(0,1-distance/Math.max(m,n,1))*100):0;const heardCounts=new Map();for(const w of b)heardCounts.set(w,(heardCounts.get(w)||0)+1);const missing=[];for(const w of a){const count=heardCounts.get(w)||0;if(count)heardCounts.set(w,count-1);else missing.push(w)}return {accuracy,missing:missing.slice(0,10),words:b.length}}
 function labStopRecognition(){if(labRecognition){try{labRecognition.abort()}catch(e){}labRecognition=null}const btn=document.getElementById('labSpeechScore');if(btn)btn.textContent='🗣️ 음성 인식으로 연습 평가'}
 let labArea='Vocabulary',labIndex=0,labSelected=null,labSeconds=0,labTick=null,labRecorder=null,labChunks=[],labAudioUrl=null;
